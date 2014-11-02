@@ -6,11 +6,11 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          id="WebApp_ID" version="2.5">
 
     <display-name>Fighting</display-name>
-    
-   <!--
-		- Location of the XML file that defines the root application context.
-		- Applied by ContextLoaderListener.
-	-->
+
+    <!--
+         - Location of the XML file that defines the root application context.
+         - Applied by ContextLoaderListener.
+     -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:spring/application-config.xml</param-value>
@@ -19,8 +19,8 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-    
-    
+
+
     <!--
 		- Servlet that dispatches request to registered handlers (Controller implementations).
 	-->
@@ -36,7 +36,7 @@ http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
 
     <servlet-mapping>
         <servlet-name>dispatcherServlet</servlet-name>
-        <url-pattern>/</url-pattern>
+        <url-pattern>*.html</url-pattern>
     </servlet-mapping>
 
 </web-app>
