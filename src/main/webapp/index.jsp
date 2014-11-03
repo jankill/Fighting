@@ -9,6 +9,8 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Welcome</title>
+        <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/cosmo/bootstrap.min.css" rel="stylesheet">
+        <link href="">
 	</head> 
 	<body>
 		<c:url value="/showMessage.html" var="messageUrl" />
