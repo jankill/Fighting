@@ -10,7 +10,8 @@
 		<meta charset="utf-8">
 		<title>Welcome</title>
 
-        <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/cosmo/bootstrap.min.css" rel="stylesheet">
+       <%-- <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/superhero/bootstrap.min.css" rel="stylesheet">--%>
+        <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/slate/bootstrap.min.css" rel="stylesheet">
 
         <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
         <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
