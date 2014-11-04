@@ -16,16 +16,16 @@ import java.util.List;
 public interface UserMapper
 {
 
-    @Select("SELECT * FROM fighter where uid=#{id}")
+    @Select("SELECT * FROM fighters where uid=#{id}")
     public User findUserById(int id);
 
-    @Select("SELECT * FROM fighter")
+    @Select("SELECT * FROM fighters")
     public List<User> findAll();
 
-    @Delete("DELETE FROM fighter where uid=#{id}")
+    @Delete("DELETE FROM fighters where uid=#{id}")
     public boolean delById(int id);
 
-    @Update("UPDATE fighter SET account=10000 WHERE uid=#{id}")
+    @Update("UPDATE fighters SET account=10000 WHERE uid=#{id}")
     public boolean update(User user);
 
     @Insert("INSERT INTO `fightingdb`.`fighters` (`fighter`, `fighterpass`, `account`, `create_date`) VALUES (#{fighter}, #{fighterpass}, '3000', '2014-11-03 19:24:10');")

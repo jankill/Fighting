@@ -10,19 +10,19 @@
 		<meta charset="utf-8">
 		<title>Welcome</title>
 
-       <%-- <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/superhero/bootstrap.min.css" rel="stylesheet">--%>
-        <%-- <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/slate/bootstrap.min.css" rel="stylesheet">--%>
-        <%-- <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css" rel="stylesheet">--%>
+       <%--<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/superhero/bootstrap.min.css" rel="stylesheet">--%>
+        <%--<link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/slate/bootstrap.min.css" rel="stylesheet">
+        --%><link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/sandstone/bootstrap.min.css" rel="stylesheet">
         <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
-        <link rel="stylesheet"
+       <%-- <link rel="stylesheet"
               href="<c:url value="/css/bootstrap.min.css"/>"
-              type="text/css">
+              type="text/css">--%>
 
-        <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+        <script src="<c:url value="/js/jquery.min.js"/>"></script>
 
         <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-        <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-        <style>
+        <script src="<c:url value="/js/bootstrap.min.js"/>"></script>
+       <%-- <style>
             body {
                 background-color: #272B30
             }
@@ -34,7 +34,7 @@
             #customNav {
                 background-color: #363B3F
             }
-        </style>
+        </style>--%>
     </head>
 	<body>
     <div id="customNav"></div>

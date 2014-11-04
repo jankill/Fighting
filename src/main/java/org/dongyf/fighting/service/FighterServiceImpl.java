@@ -1,8 +1,9 @@
-package org.dongyf.fighting.serviceImpl;
+package org.dongyf.fighting.service;
 
 import org.dongyf.fighting.mapper.UserMapper;
 import org.dongyf.fighting.model.User;
 import org.dongyf.fighting.service.FighterService;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -25,14 +26,15 @@ public class FighterServiceImpl implements FighterService
     @Override
     public User findUserById(int id)
     {
-        mapper.findUserById(id);
-        return null;
+       User user= mapper.findUserById(id);
+        return user;
     }
 
     @Override
     public List<User> findAll()
     {
-        return null;
+        List<User> list = mapper.findAll();
+        return list;
     }
 
     @Override

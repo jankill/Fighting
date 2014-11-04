@@ -15,13 +15,13 @@
     <!-- 开启controller注解支持 -->
     <!-- 注：如果base-package=org.delta.rf.web 则注解事务不起作用 -->
     <!-- 此处只应该加载表现层组件，如果此处还加载dao层或service层的bean会将之前容器加载的替换掉，而且此处不会进行AOP织入，所以会造成AOP失效问题（如事务不起作用） -->
-    <context:component-scan base-package="org.dongyf.fighting.controller">
+    <context:component-scan base-package="org.dongyf.fighting">
         <context:include-filter type="annotation"
-                                expression="org.springframework.stereotype.Controller"/>
+                                expression="org.springframework.stereotype.Controller" />
         <context:exclude-filter type="annotation"
-                                expression="org.springframework.stereotype.Service"/>
+                                expression="org.springframework.stereotype.Service" />
         <context:exclude-filter type="annotation"
-                                expression="org.springframework.stereotype.Repository"/>
+                                expression="org.springframework.stereotype.Repository" />
     </context:component-scan>
     <!-- InternalResourceViewResolver ：用于支持Servlet、JSP视图解析； -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
