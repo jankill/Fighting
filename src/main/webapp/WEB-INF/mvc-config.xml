@@ -18,10 +18,7 @@
     <context:component-scan base-package="org.dongyf.fighting">
         <context:include-filter type="annotation"
                                 expression="org.springframework.stereotype.Controller" />
-        <context:exclude-filter type="annotation"
-                                expression="org.springframework.stereotype.Service" />
-        <context:exclude-filter type="annotation"
-                                expression="org.springframework.stereotype.Repository" />
+
     </context:component-scan>
     <!-- InternalResourceViewResolver ：用于支持Servlet、JSP视图解析； -->
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">

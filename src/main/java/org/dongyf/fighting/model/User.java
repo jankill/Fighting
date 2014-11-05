@@ -9,21 +9,22 @@ import java.util.Date;
 public class User
 {
     private int uid;
-    private String userName;
-    private String userpwd;
-    private Date createDate;
+    private String fighter;
+    private String fighterPass;
+    private Date create_date;
     private BigDecimal account;
 
     public User()
     {
+
     }
 
-    public User(int uid, String userName, String userpwd, Date createDate, BigDecimal account)
+    public User(int uid, String fighter, String fighterPass, Date create_date, BigDecimal account)
     {
         this.uid = uid;
-        this.userName = userName;
-        this.userpwd = userpwd;
-        this.createDate = createDate;
+        this.fighter = fighter;
+        this.fighterPass = fighterPass;
+        this.create_date = create_date;
         this.account = account;
     }
 
@@ -37,34 +38,34 @@ public class User
         this.uid = uid;
     }
 
-    public String getUserName()
+    public String getFighter()
     {
-        return userName;
+        return fighter;
     }
 
-    public void setUserName(String userName)
+    public void setFighter(String fighter)
     {
-        this.userName = userName;
+        this.fighter = fighter;
     }
 
-    public String getUserpwd()
+    public String getFighterPass()
     {
-        return userpwd;
+        return fighterPass;
     }
 
-    public void setUserpwd(String userpwd)
+    public void setFighterPass(String fighterPass)
     {
-        this.userpwd = userpwd;
+        this.fighterPass = fighterPass;
     }
 
-    public Date getCreateDate()
+    public Date getCreate_date()
     {
-        return createDate;
+        return create_date;
     }
 
-    public void setCreateDate(Date createDate)
+    public void setCreate_date(Date create_date)
     {
-        this.createDate = createDate;
+        this.create_date = create_date;
     }
 
     public BigDecimal getAccount()
@@ -81,10 +82,10 @@ public class User
     public String toString()
     {
         return "User{" +
-                "uid='" + uid + '\'' +
-                ", userName='" + userName + '\'' +
-                ", userpwd='" + userpwd + '\'' +
-                ", createDate=" + createDate +
+                "uid=" + uid +
+                ", fighter='" + fighter + '\'' +
+                ", fighterPass='" + fighterPass + '\'' +
+                ", create_date=" + create_date +
                 ", account=" + account +
                 '}';
     }
