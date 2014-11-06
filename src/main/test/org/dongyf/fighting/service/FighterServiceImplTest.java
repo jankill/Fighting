@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.io.File;
+import java.net.MalformedURLException;
 import java.util.List;
 
 
@@ -14,12 +16,7 @@ public class FighterServiceImplTest
     @Test
     public void testFindUserById() throws Exception
     {
-        ApplicationContext context = new ClassPathXmlApplicationContext("spring/application-config.xml");
-       FighterService fighterService = context.getBean("fighterService",FighterService.class);
-        List<User> users = fighterService.findAll();
-        for (User user : users){
-            System.out.println(user);
-        }
-
+        File file = new File("webapp/resources/images/1.jpg");
+        System.out.println(file.length());
     }
 }
