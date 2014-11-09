@@ -14,7 +14,7 @@
 
     <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/css/bootstrap.min.simplex.css"
+          href="${pageContext.request.contextPath}/css/bootstrap.min.css"
           type="text/css">
     <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 
@@ -33,12 +33,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Brand</a>
+            <a class="navbar-brand" href="#">格斗爱好者</a>
         </div>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Active</a></li>
-                <li><a href="#">Link</a></li>
+                <li><a href=<c:out value="${pageContext.request.contextPath}/schedule"/>>赛事预告</a></li>
+                <li class="active"><a href=<c:out value="${pageContext.request.contextPath}/videos"/>>赛事视频</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
                     <ul class="dropdown-menu">
@@ -52,9 +52,7 @@
                     </ul>
                 </li>
             </ul>
-            <form class="navbar-form navbar-left">
-                <input type="text" class="form-control col-lg-8" placeholder="Search">
-            </form>
+
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#">Link</a></li>
                 <li class="dropdown">
@@ -74,15 +72,22 @@
 
 <div class="container">
     <div class="row">
+
+        <ol class="breadcrumb">
+            <c:forEach items="${menus}" var="menu">
+
+            <li><a href=<c:out value="${pageContext.request.contextPath}/video/${menu.menuName}"/>><c:out value="${menu.menuName}"/></a></li>
+
+            </c:forEach>
+        </ol>
+    </div>
+    <div class="row">
         <div class="col-xs-12 col-md-8">
-            <div>
-            <h2><a target="_blank" href="http://www.mmamania.com/2014/9/11/6135743/latest-ufc-fight-night-55-fight-card-rumors-rockhold-bisping-sydney-australia-nov-8-fight-pass-mma">UFC Fight Night 55: 'Rockhold vs. Bisping'</a></h2>
-            <
-            </div>
-                <ul class="media-list">
+
+            <ul class="media-list">
                 <li class="media">
                     <a class="media-left" href="#">
-                        <img src="${pageContext.request.contextPath}/images/rock-bis-poster.jpg" alt="...">
+                        <img src="${pageContext.request.contextPath}/images/1.jpg" alt="...">
                     </a>
 
                     <div class="media-body">
@@ -92,7 +97,7 @@
                 </li>
                 <li class="media">
                     <a class="media-left" href="#">
-                        <img src="${pageContext.request.contextPath}/images/rock-bis-poster2.jpg" alt="...">
+                        <img src="${pageContext.request.contextPath}/images/2.jpg" alt="...">
                     </a>
 
                     <div class="media-body">
@@ -102,7 +107,7 @@
                 </li>
                 <li class="media">
                     <a class="media-left" href="#">
-                        <img src="${pageContext.request.contextPath}/images/55-short_medium.jpg" alt="...">
+                        <img src="${pageContext.request.contextPath}/images/3.jpg" alt="...">
                     </a>
 
                     <div class="media-body">
@@ -124,12 +129,35 @@
                     <a class="media-left" href="#">
                         <img src="${pageContext.request.contextPath}/images/5.jpg" alt="...">
                     </a>
+
                     <div class="media-body">
                         <h4 class="media-heading">Media heading</h4>
                         ...
                     </div>
                 </li>
             </ul>
+
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingTwo">
+                    <h4 class="panel-title">
+                        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"
+                           aria-expanded="false" aria-controls="collapseTwo">
+                            UFC Fight Night 55: 'Rockhold vs. Bisping'
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                        3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
+                        laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin
+                        coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes
+                        anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings
+                        occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard
+                        of them accusamus labore sustainable VHS.
+                    </div>
+                </div>
+            </div>
         </div>
 
 
@@ -148,6 +176,7 @@
                 </table>
             </div>
         </div>
+
     </div>
 </div>
 </body>

@@ -26,30 +26,4 @@ import java.util.Map;
 public class FighterController
 
 {
-    private FighterService fighterService;
-    @Resource
-    public void setFighterService(FighterService fighterService)
-    {
-        this.fighterService = fighterService;
-    }
-
-    @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
-    public ModelAndView index(ModelAndView modelAndView ,HttpServletRequest request)
-    {
-        List<User> users = fighterService.findAll();
-        for (User user : users){
-            System.out.println(user);
-        }
-modelAndView.addObject("users" ,users);
-
-        modelAndView.setViewName("index");
-       String path =  request.getServletContext().getRealPath("/");
-        File file = new File(path+File.separator+"resources"+File.separator+"images");
-        File[] files = file.listFiles();
-        for (File f : files){
-            System.out.println(f.getName());
-        }
-        System.out.println();
-        return modelAndView;
-    }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 /**
  * Created by Dongyf on 2014/11/3.
  */
-
+@Service
 public class FighterServiceImpl implements FighterService
 {
 
