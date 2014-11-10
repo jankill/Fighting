@@ -38,7 +38,7 @@
       <ul class="nav navbar-nav">
         <li><a href=<c:out value="${pageContext.request.contextPath}/schedule"/>>赛事预告</a></li>
         <li class="active"><a href=<c:out value="${pageContext.request.contextPath}/videos"/>>赛事视频</a></li>
-        <li class="dropdown">
+        <%--<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
@@ -49,10 +49,10 @@
             <li><a href="#">Separated link</a></li>
             <li><a href="#">One more separated link</a></li>
           </ul>
-        </li>
+        </li>--%>
       </ul>
 
-      <ul class="nav navbar-nav navbar-right">
+ <%--     <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
@@ -64,7 +64,7 @@
             <li><a href="#">Separated link</a></li>
           </ul>
         </li>
-      </ul>
+      </ul>--%>
     </div>
   </div>
 </div>
