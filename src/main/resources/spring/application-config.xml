@@ -10,10 +10,7 @@
        default-lazy-init="true">
     <context:component-scan
             base-package="org.dongyf.fighting">
-        <context:include-filter type="annotation"
-                                expression="org.springframework.stereotype.Service" />
-        <context:include-filter type="annotation"
-                                expression="org.springframework.stereotype.Repository" />
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>
     <!--1、定义一个datasource(数据源)-->
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">

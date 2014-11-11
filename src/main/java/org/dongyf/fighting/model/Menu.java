@@ -1,5 +1,6 @@
 package org.dongyf.fighting.model;
 
+import java.math.BigInteger;
 import java.util.Date;
 
 /**
@@ -8,85 +9,71 @@ import java.util.Date;
 public class Menu
 {
 
-    private String menuId;
-    private String menuName;
-    private String parentId;
-    private String rank;
-    private Date createDate;
+    private BigInteger menuId;
+    private String name;
+    private String enName;
+    private BigInteger menuGroup;
 
     public Menu()
     {
-
     }
 
-    public Menu(String menuId, String menuName, String parentId, String rank, Date createDate)
+    public Menu(BigInteger menuId, String name, String enName, BigInteger menuGroup)
     {
         this.menuId = menuId;
-        this.menuName = menuName;
-        this.parentId = parentId;
-        this.rank = rank;
-        this.createDate = createDate;
+        this.name = name;
+        this.enName = enName;
+        this.menuGroup = menuGroup;
     }
 
-    public String getMenuId()
+    public BigInteger getMenuId()
     {
         return menuId;
     }
 
-    public void setMenuId(String menuId)
+    public void setMenuId(BigInteger menuId)
     {
         this.menuId = menuId;
     }
 
-    public String getMenuName()
+    public String getName()
     {
-        return menuName;
+        return name;
     }
 
-    public void setMenuName(String menuName)
+    public void setName(String name)
     {
-        this.menuName = menuName;
+        this.name = name;
     }
 
-    public String getParentId()
+    public String getEnName()
     {
-        return parentId;
+        return enName;
     }
 
-    public void setParentId(String parentId)
+    public void setEnName(String enName)
     {
-        this.parentId = parentId;
+        this.enName = enName;
     }
 
-    public String getRank()
+    public BigInteger getMenuGroup()
     {
-        return rank;
+        return menuGroup;
     }
 
-    public void setRank(String rank)
+    public void setMenuGroup(BigInteger menuGroup)
     {
-        this.rank = rank;
-    }
-
-    public Date getCreateDate()
-    {
-        return createDate;
-    }
-
-    public void setCreateDate(Date createDate)
-    {
-        this.createDate = createDate;
+        this.menuGroup = menuGroup;
     }
 
     @Override
     public String toString()
     {
         return "Menu{" +
-                "menuId='" + menuId + '\'' +
-                ", menuName='" + menuName + '\'' +
-                ", parentId='" + parentId + '\'' +
-                ", rank='" + rank + '\'' +
-                ", createDate=" + createDate +
+                "menuId=" + menuId +
+                ", name='" + name + '\'' +
+                ", enName='" + enName + '\'' +
+                ", menuGroup=" + menuGroup +
                 '}';
     }
 }

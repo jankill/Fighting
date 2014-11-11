@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by dongyf on 2014/11/3.
  */
-@Repository
+@Repository("userMapper")
 public interface UserMapper
 {
 

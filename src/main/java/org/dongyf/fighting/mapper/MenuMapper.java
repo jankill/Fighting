@@ -14,6 +14,6 @@ import java.util.List;
 @Repository
 public interface MenuMapper
 {
-   @Select(" select MENU_ID as menuId,MENU_NAME as menuName,PARENT_ID as parentId,RANK as rank from menu WHERE PARENT_ID=0 AND RANK=2")
+  // @Select(" select MENU_ID as menuId,MENU_NAME as menuName,PARENT_ID as parentId,RANK as rank from menu WHERE PARENT_ID=0 AND RANK=2")
    public List<Menu> selectMenu();
 }
