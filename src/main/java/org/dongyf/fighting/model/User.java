@@ -1,6 +1,6 @@
 package org.dongyf.fighting.model;
 
-import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Date;
 
 /**
@@ -8,85 +8,97 @@ import java.util.Date;
  */
 public class User
 {
-    private int uid;
-    private String fighter;
-    private String fighterPass;
-    private Date create_date;
-    private BigDecimal account;
+    private BigInteger id;
+    private String userLogin;
+    private String userPass;
+    private String userNickName;
+    private String userEmail;
+    private Date userRegistered;
 
     public User()
     {
-
     }
 
-    public User(int uid, String fighter, String fighterPass, Date create_date, BigDecimal account)
+    public User(BigInteger id, String userLogin, String userPass, String userNickName, String userEmail, Date userRegistered)
     {
-        this.uid = uid;
-        this.fighter = fighter;
-        this.fighterPass = fighterPass;
-        this.create_date = create_date;
-        this.account = account;
+        this.id = id;
+        this.userLogin = userLogin;
+        this.userPass = userPass;
+        this.userNickName = userNickName;
+        this.userEmail = userEmail;
+        this.userRegistered = userRegistered;
     }
 
-    public int getUid()
+    public BigInteger getId()
     {
-        return uid;
+        return id;
     }
 
-    public void setUid(int uid)
+    public void setId(BigInteger id)
     {
-        this.uid = uid;
+        this.id = id;
     }
 
-    public String getFighter()
+    public String getUserLogin()
     {
-        return fighter;
+        return userLogin;
     }
 
-    public void setFighter(String fighter)
+    public void setUserLogin(String userLogin)
     {
-        this.fighter = fighter;
+        this.userLogin = userLogin;
     }
 
-    public String getFighterPass()
+    public String getUserPass()
     {
-        return fighterPass;
+        return userPass;
     }
 
-    public void setFighterPass(String fighterPass)
+    public void setUserPass(String userPass)
     {
-        this.fighterPass = fighterPass;
+        this.userPass = userPass;
     }
 
-    public Date getCreate_date()
+    public String getUserNickName()
     {
-        return create_date;
+        return userNickName;
     }
 
-    public void setCreate_date(Date create_date)
+    public void setUserNickName(String userNickName)
     {
-        this.create_date = create_date;
+        this.userNickName = userNickName;
     }
 
-    public BigDecimal getAccount()
+    public String getUserEmail()
     {
-        return account;
+        return userEmail;
     }
 
-    public void setAccount(BigDecimal account)
+    public void setUserEmail(String userEmail)
     {
-        this.account = account;
+        this.userEmail = userEmail;
+    }
+
+    public Date getUserRegistered()
+    {
+        return userRegistered;
+    }
+
+    public void setUserRegistered(Date userRegistered)
+    {
+        this.userRegistered = userRegistered;
     }
 
     @Override
     public String toString()
     {
         return "User{" +
-                "uid=" + uid +
-                ", fighter='" + fighter + '\'' +
-                ", fighterPass='" + fighterPass + '\'' +
-                ", create_date=" + create_date +
-                ", account=" + account +
+                "userPass='" + userPass + '\'' +
+                ", userNickName='" + userNickName + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                ", userRegistered=" + userRegistered +
+                ", userLogin='" + userLogin + '\'' +
+                ", id=" + id +
                 '}';
     }
 }

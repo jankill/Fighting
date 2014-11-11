@@ -16,7 +16,7 @@
 
 <mapper namespace="org.mybatis.jpetstore.persistence.AccountMapper">
 
-    <cache />
+    <cache/>
 
     <select id="getAccountByUsername" resultType="Account">
         SELECT

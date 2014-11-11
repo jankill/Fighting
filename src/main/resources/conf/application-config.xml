@@ -10,15 +10,24 @@
        default-lazy-init="true">
     <context:component-scan
             base-package="org.dongyf.fighting">
-        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository"/>
     </context:component-scan>
+    <context:property-placeholder location="classpath:conf/jdbc.properties"/>
     <!--1、定义一个datasource(数据源)-->
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
-        <property name="driverClassName" value="org.mariadb.jdbc.Driver"/>
-        <property name="url"
-                  value="jdbc:mysql://localhost:3306/fightingdb"/>
-        <property name="username" value="root"/>
-        <property name="password" value="root"/>
+        <property name="driverClassName">
+            <value>${jdbc_driverClassName}</value>
+        </property>
+        <property name="url">
+            <value>${jdbc_url}</value>
+        </property>
+        <property name="username">
+            <value>${jdbc_userName}</value>
+        </property>
+        <property name="password">
+            <value>${jdbc_password}</value>
+        </property>
 
     </bean>
     <!--2、为这个数据源配置事物-->
@@ -30,11 +39,13 @@
     <!--3、使用已定义的数据源来创建一个SqlSessionFactory,这里使用org.mybatis.spring.SqlSessionFactoryBean来代替SqlSessionFactoryBuilder-->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:conf/mybatis3-conf.xml"/>
         <!--typeAliasesPackage：它一般对应我们的实体类所在的包，这个时候会自动取对应包中不包括包名的简单类名作为包括包名的别名。多个package之间可以用逗号或者分号等来进行分隔。-->
         <property name="typeAliasesPackage" value="org.dongyf.fighting.model"></property>
+
         <!--mapperLocations：它表示我们的Mapper文件存放的位置，当我们的Mapper文件跟对应的Mapper接口处于同一位置的时候可以不用指定该属性的值。-->
-        <!--<property name="mapperLocations" value="classpath*:org/dongyf/fighting/mapper/maperXml/*Mapper.xml"></property>
-  -->  </bean>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
+    </bean>
     <!--4、使用sqlSessionFactory来创建一个sqlSession-->
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg index="0" ref="sqlSessionFactory"/>
