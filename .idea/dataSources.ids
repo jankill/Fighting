@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - fightingdb@localhost" uuid="2fdef60e-0149-45a6-ad23-a4f90d30b928">
+    <database-info product="MySQL" version="5.5.5-10.0.14-MariaDB" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.31 ( Revision: alexander.soklakov@oracle.com-20140520065950-groqzzbvxprqdmnz )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="fightingdb"/>
+    <table name="comment" schema="" catalog="fightingdb" type="TABLE">
+      <column name="COMMENT_ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="COMMENT_POST_ID" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <column name="COMMENT_AUTHOR" sqlType="TINYTEXT" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="COMMENT_AUTHOR_EMAIL" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="COMMENT_AUTHOR_URL" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="COMMENT_AUTHOR_IP" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="COMMENT_DATE" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="COMMENT_CONTENT" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="COMMENT_APPROVED" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="COMEMNT_AGENT" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="COMMENT_PARENT" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5"/>
+      <primary-key name="PRIMARY" columns="COMMENT_ID"/>
+    </table>
+    <table name="fighters" schema="" catalog="fightingdb" type="TABLE">
+      <column name="uid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="fighter" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="fighterPass" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="account" sqlType="DECIMAL" precision="18" scale="0" nullable="false" jdbcType="3" def="MA=="/>
+      <column name="create_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="uid"/>
+    </table>
+    <table name="fighting_commentmeta" schema="" catalog="fightingdb" type="TABLE">
+      <column name="meta_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="comment_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="meta_key" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <column name="meta_value" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <primary-key name="PRIMARY" columns="meta_id"/>
+      <index name="comment_id" unique="false" columns="comment_id"/>
+      <index name="meta_key" unique="false" columns="meta_key"/>
+    </table>
+    <table name="fighting_comments" schema="" catalog="fightingdb" type="TABLE">
+      <column name="comment_ID" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="comment_post_ID" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="comment_author" sqlType="TINYTEXT" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="comment_author_email" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="comment_author_url" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="comment_author_IP" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="comment_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="comment_date_gmt" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="comment_content" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="comment_karma" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="comment_approved" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12" def="JzEn"/>
+      <column name="comment_agent" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="comment_type" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="comment_parent" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="user_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="comment_mail_notify" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6" def="MA=="/>
+      <primary-key name="PRIMARY" columns="comment_ID"/>
+      <index name="comment_approved_date_gmt" unique="false" columns="comment_approved,comment_date_gmt"/>
+      <index name="comment_date_gmt" unique="false" columns="comment_date_gmt"/>
+      <index name="comment_parent" unique="false" columns="comment_parent"/>
+      <index name="comment_post_ID" unique="false" columns="comment_post_ID"/>
+    </table>
+    <table name="fighting_links" schema="" catalog="fightingdb" type="TABLE">
+      <column name="link_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="link_url" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="link_name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="link_image" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="link_target" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="link_description" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="link_visible" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12" def="J1kn"/>
+      <column name="link_owner" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MQ=="/>
+      <column name="link_rating" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <column name="link_updated" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="link_rel" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="link_notes" sqlType="MEDIUMTEXT" precision="16777215" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="link_rss" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <primary-key name="PRIMARY" columns="link_id"/>
+      <index name="link_visible" unique="false" columns="link_visible"/>
+    </table>
+    <table name="fighting_menu_catalog" schema="" catalog="fightingdb" type="TABLE">
+      <column name="menu_catalog_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="menu_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="catalog" sqlType="VARCHAR" precision="32" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="description" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="parent" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="count" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <primary-key name="PRIMARY" columns="menu_catalog_id"/>
+      <index name="term_id_taxonomy" unique="true" columns="menu_id,catalog"/>
+      <index name="taxonomy" unique="false" columns="catalog"/>
+    </table>
+    <table name="fighting_menu_relationships" schema="" catalog="fightingdb" type="TABLE">
+      <column name="object_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="menu_catalog_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="term_order" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" def="MA=="/>
+      <primary-key name="PRIMARY" columns="object_id,menu_catalog_id"/>
+      <index name="term_taxonomy_id" unique="false" columns="menu_catalog_id"/>
+    </table>
+    <table name="fighting_menus" schema="" catalog="fightingdb" type="TABLE">
+      <column name="menu_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="menu_name" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="full_name" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="action_url" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <primary-key name="PRIMARY" columns="menu_id"/>
+      <index name="menu_name" unique="true" columns="menu_name"/>
+      <index name="action_url" unique="false" columns="action_url"/>
+    </table>
+    <table name="fighting_options" schema="" catalog="fightingdb" type="TABLE">
+      <column name="option_id" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="option_name" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="option_value" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="autoload" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12" def="J3llcyc="/>
+      <primary-key name="PRIMARY" columns="option_id"/>
+      <index name="option_name" unique="true" columns="option_name"/>
+    </table>
+    <table name="fighting_posts" schema="" catalog="fightingdb" type="TABLE">
+      <column name="ID" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="post_author" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <column name="post_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="post_content" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="post_title" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="post_excerpt" sqlType="TEXT" precision="65535" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="comment_status" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12" def="J29wZW4n"/>
+      <column name="post_name" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="post_modified" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <column name="comment_count" sqlType="BIGINT" precision="19" scale="0" nullable="false" jdbcType="-5" def="MA=="/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <index name="post_author" unique="false" columns="post_author"/>
+      <index name="post_name" unique="false" columns="post_name"/>
+      <index name="type_status_date" unique="false" columns="post_date,ID"/>
+    </table>
+    <table name="fighting_users" schema="" catalog="fightingdb" type="TABLE">
+      <column name="ID" sqlType="BIGINT UNSIGNED" precision="20" scale="0" nullable="false" jdbcType="-5" autoIncrement="true"/>
+      <column name="user_login" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="user_pass" sqlType="VARCHAR" precision="64" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="user_nicename" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="user_email" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12" def="Jyc="/>
+      <column name="user_registered" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93" def="JzAwMDAtMDAtMDAgMDA6MDA6MDAn"/>
+      <primary-key name="PRIMARY" columns="ID"/>
+      <index name="user_login_key" unique="false" columns="user_login"/>
+      <index name="user_nicename" unique="false" columns="user_nicename"/>
+    </table>
+    <table name="menu" schema="" catalog="fightingdb" type="TABLE">
+      <column name="MENU_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="MENU_NAME" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="PARENT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="RANK" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="CREATE_DATE" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93" version="true"/>
+      <column name="ACTION_URL" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="FULLL_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ORG_RANKED" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="MENU_ID"/>
+    </table>
+    <table name="organisations" schema="" catalog="fightingdb" type="TABLE">
+      <column name="ORG_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="ORG_NAME" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="NICK_NAME" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="ORG_RANKED" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="ORG_ID"/>
+    </table>
+    <table name="schedule" schema="" catalog="fightingdb" type="TABLE">
+      <column name="uid" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="NAME" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="FULL_NAME" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="TITLE" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="LOCATION" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="CREATE_DATE" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93" version="true"/>
+      <primary-key name="PRIMARY" columns="uid"/>
+    </table>
+  </data-source>
+</component>
