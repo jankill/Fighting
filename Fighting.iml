@@ -19,9 +19,8 @@
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/spring/application-config.xml</file>
-        </fileset>
-        <fileset id="web application context" name="MVC application context" removed="false">
-          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/mvc-config.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/application-config.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/application-config.xml</file>
         </fileset>
       </configuration>
     </facet>
@@ -266,4 +265,3 @@
     </option>
   </component>
 </module>
-

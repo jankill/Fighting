@@ -1,7 +1,6 @@
-package org.dongyf.fighting.model;
+package org.dongyf.fighting.entity;
 
 import java.math.BigInteger;
-import java.util.List;
 
 /**
  * Created by Dongyf on 2014/11/10.
@@ -9,7 +8,7 @@ import java.util.List;
 public class Catalog
 {
     private BigInteger menuCatalogId;
-    private List<Menu> menus;
+    private BigInteger menuId;
     private String catalog;
     private String description;
     private BigInteger parent;
@@ -19,10 +18,10 @@ public class Catalog
     {
     }
 
-    public Catalog(BigInteger menuCatalogId, List<Menu> menus, String catalog, String description, BigInteger parent, BigInteger count)
+    public Catalog(BigInteger menuCatalogId, BigInteger menuId, String catalog, String description, BigInteger parent, BigInteger count)
     {
         this.menuCatalogId = menuCatalogId;
-        this.menus = menus;
+        this.menuId = menuId;
         this.catalog = catalog;
         this.description = description;
         this.parent = parent;
@@ -39,14 +38,14 @@ public class Catalog
         this.menuCatalogId = menuCatalogId;
     }
 
-    public List<Menu> getMenus()
+    public BigInteger getMenuId()
     {
-        return menus;
+        return menuId;
     }
 
-    public void setMenus(List<Menu> menus)
+    public void setMenuId(BigInteger menuId)
     {
-        this.menus = menus;
+        this.menuId = menuId;
     }
 
     public String getCatalog()
@@ -80,13 +79,12 @@ public class Catalog
     }
 
 
-
     @Override
     public String toString()
     {
         return "Catalog{" +
                 "menuCatalogId=" + menuCatalogId +
-                ", menus=" + menus +
+                ", menuId=" + menuId +
                 ", catalog='" + catalog + '\'' +
                 ", description='" + description + '\'' +
                 ", parent=" + parent +

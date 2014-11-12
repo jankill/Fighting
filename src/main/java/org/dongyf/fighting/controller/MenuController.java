@@ -20,7 +20,7 @@ import java.util.List;
  * Created by Dongyf on 2014/11/8.
  */
 @Controller
-public class SecondMenuController
+public class MenuController
 {
     private FighterService fighterService;
     @Autowired

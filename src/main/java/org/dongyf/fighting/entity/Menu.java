@@ -1,4 +1,4 @@
-package org.dongyf.fighting.model;
+package org.dongyf.fighting.entity;
 
 import java.math.BigInteger;
 
