@@ -10,10 +10,58 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2014-11-11 17:05:43
+Date: 2014-11-12 22:18:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for comment
+-- ----------------------------
+DROP TABLE IF EXISTS `comment`;
+CREATE TABLE `comment` (
+  `COMMENT_ID` bigint(20) NOT NULL AUTO_INCREMENT,
+  `COMMENT_POST_ID` bigint(20) NOT NULL,
+  `COMMENT_AUTHOR` tinytext NOT NULL,
+  `COMMENT_AUTHOR_EMAIL` varchar(100) NOT NULL,
+  `COMMENT_AUTHOR_URL` varchar(200) NOT NULL,
+  `COMMENT_AUTHOR_IP` varchar(100) NOT NULL,
+  `COMMENT_DATE` datetime NOT NULL,
+  `COMMENT_CONTENT` text NOT NULL,
+  `COMMENT_APPROVED` varchar(20) NOT NULL,
+  `COMEMNT_AGENT` varchar(255) NOT NULL,
+  `COMMENT_PARENT` bigint(20) NOT NULL,
+  PRIMARY KEY (`COMMENT_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of comment
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for fighters
+-- ----------------------------
+DROP TABLE IF EXISTS `fighters`;
+CREATE TABLE `fighters` (
+  `uid` int(10) NOT NULL AUTO_INCREMENT,
+  `fighter` varchar(255) NOT NULL,
+  `fighterPass` varchar(255) NOT NULL,
+  `account` decimal(18,0) NOT NULL DEFAULT '0',
+  `create_date` datetime NOT NULL,
+  PRIMARY KEY (`uid`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of fighters
+-- ----------------------------
+INSERT INTO `fighters` VALUES ('1', 'zhangsan', '123456', '10000', '2014-11-03 19:24:10');
+INSERT INTO `fighters` VALUES ('2', 'lisi', '123456', '1000', '2014-11-03 19:24:10');
+INSERT INTO `fighters` VALUES ('3', 'wangwu', '123456', '3000', '2014-11-03 19:24:10');
+INSERT INTO `fighters` VALUES ('4', 'test', '123456', '3000', '2014-11-03 19:24:10');
+INSERT INTO `fighters` VALUES ('5', 'domian', '123456', '3000', '2014-11-03 19:24:10');
+INSERT INTO `fighters` VALUES ('6', 'admin', '123456', '3000', '2014-11-03 19:24:10');
+INSERT INTO `fighters` VALUES ('7', 'admin', '123456', '3000', '2014-11-03 19:24:10');
+INSERT INTO `fighters` VALUES ('8', 'dongyf', '123456', '10000', '2014-11-03 19:24:10');
 
 -- ----------------------------
 -- Table structure for fighting_commentmeta
@@ -113,90 +161,52 @@ CREATE TABLE `fighting_links` (
 DROP TABLE IF EXISTS `fighting_menus`;
 CREATE TABLE `fighting_menus` (
   `menu_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(200) NOT NULL DEFAULT '',
-  `slug` varchar(200) NOT NULL DEFAULT '',
-  `menu_group` bigint(10) NOT NULL DEFAULT '0',
+  `menu_name` varchar(100) NOT NULL DEFAULT '',
+  `full_name` varchar(200) NOT NULL DEFAULT '',
+  `action_url` varchar(100) NOT NULL DEFAULT '',
   PRIMARY KEY (`menu_id`),
-  UNIQUE KEY `slug` (`slug`),
-  KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
+  UNIQUE KEY `menu_name` (`menu_name`),
+  KEY `action_url` (`action_url`)
+) ENGINE=InnoDB AUTO_INCREMENT=120 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of fighting_menus
 -- ----------------------------
-INSERT INTO `fighting_menus` VALUES ('1', '未分类', 'uncategorized', '0');
-INSERT INTO `fighting_menus` VALUES ('2', 'Nitro Pro 8', 'nitro-pro-8', '0');
-INSERT INTO `fighting_menus` VALUES ('3', 'PDF转换', 'pdf%e8%bd%ac%e6%8d%a2', '0');
-INSERT INTO `fighting_menus` VALUES ('4', '破解软件', 'cracksoftware', '0');
-INSERT INTO `fighting_menus` VALUES ('5', 'menu', 'menu', '0');
-INSERT INTO `fighting_menus` VALUES ('6', '杀毒软件', 'antivirus-software', '0');
-INSERT INTO `fighting_menus` VALUES ('7', '网络软件', 'network-software', '0');
-INSERT INTO `fighting_menus` VALUES ('8', '系统软件', 'system-software', '0');
-INSERT INTO `fighting_menus` VALUES ('9', '应用软件', 'internet-applications', '0');
-INSERT INTO `fighting_menus` VALUES ('10', '媒体软件', 'media-software', '0');
-INSERT INTO `fighting_menus` VALUES ('11', '图像软件', 'graphic-software', '0');
-INSERT INTO `fighting_menus` VALUES ('12', 'Internet Download Manager IDM', 'internet-download-manager-idm', '0');
-INSERT INTO `fighting_menus` VALUES ('13', 'Internet Download Manager', 'internet-download-manager', '0');
-INSERT INTO `fighting_menus` VALUES ('14', 'YouCam', 'youcam', '0');
-INSERT INTO `fighting_menus` VALUES ('15', 'Abrosoft FantaMorph Deluxe', 'abrosoft-fantamorph-deluxe', '0');
-INSERT INTO `fighting_menus` VALUES ('16', 'WinAmp Pro', 'winamp-pro', '0');
-INSERT INTO `fighting_menus` VALUES ('17', 'EasyRecovery Enterprise', 'easyrecovery-enterprise', '0');
-INSERT INTO `fighting_menus` VALUES ('18', '数据恢复软件', '%e6%95%b0%e6%8d%ae%e6%81%a2%e5%a4%8d%e8%bd%af%e4%bb%b6', '0');
-INSERT INTO `fighting_menus` VALUES ('19', '图片文字识别软件', '%e5%9b%be%e7%89%87%e6%96%87%e5%ad%97%e8%af%86%e5%88%ab%e8%bd%af%e4%bb%b6', '0');
-INSERT INTO `fighting_menus` VALUES ('20', 'ABBYY FineReader 11', 'abbyy-finereader-11', '0');
-INSERT INTO `fighting_menus` VALUES ('21', 'Vuescan Pro', 'vuescan-pro', '0');
-INSERT INTO `fighting_menus` VALUES ('22', '图像扫描软件', '%e5%9b%be%e5%83%8f%e6%89%ab%e6%8f%8f%e8%bd%af%e4%bb%b6', '0');
-INSERT INTO `fighting_menus` VALUES ('23', '文件恢复软件', '%e6%96%87%e4%bb%b6%e6%81%a2%e5%a4%8d%e8%bd%af%e4%bb%b6', '0');
-INSERT INTO `fighting_menus` VALUES ('24', 'Easy File Undelete', 'easy-file-undelete', '0');
-INSERT INTO `fighting_menus` VALUES ('25', '文件夹加密工具', '%e6%96%87%e4%bb%b6%e5%a4%b9%e5%8a%a0%e5%af%86%e5%b7%a5%e5%85%b7', '0');
-INSERT INTO `fighting_menus` VALUES ('26', 'Folder Lock v7', 'folder-lock-v7', '0');
-INSERT INTO `fighting_menus` VALUES ('27', '显卡辅助+游戏录像软件', '%e6%98%be%e5%8d%a1%e8%be%85%e5%8a%a9%e6%b8%b8%e6%88%8f%e5%bd%95%e5%83%8f%e8%bd%af%e4%bb%b6', '0');
-INSERT INTO `fighting_menus` VALUES ('28', 'Fraps', 'fraps', '0');
-INSERT INTO `fighting_menus` VALUES ('29', 'Sante Dental CT', 'sante-dental-ct', '0');
-INSERT INTO `fighting_menus` VALUES ('30', '牙科CT多平面重建软件', '%e7%89%99%e7%a7%91ct%e5%a4%9a%e5%b9%b3%e9%9d%a2%e9%87%8d%e5%bb%ba%e8%bd%af%e4%bb%b6', '0');
-INSERT INTO `fighting_menus` VALUES ('31', 'Sante DICOM Viewer Pro', 'sante-dicom-viewer-pro', '0');
-INSERT INTO `fighting_menus` VALUES ('32', '医学影像编辑软件', '%e5%8c%bb%e5%ad%a6%e5%bd%b1%e5%83%8f%e7%bc%96%e8%be%91%e8%bd%af%e4%bb%b6', '0');
-INSERT INTO `fighting_menus` VALUES ('33', '硬盘.内存卡.USB驱动器数据恢复软件', '%e7%a1%ac%e7%9b%98-%e5%86%85%e5%ad%98%e5%8d%a1-usb%e9%a9%b1%e5%8a%a8%e5%99%a8%e6%95%b0%e6%8d%ae%e6%81%a2%e5%a4%8d%e8%bd%af%e4%bb%b6', '0');
-INSERT INTO `fighting_menus` VALUES ('34', 'Comfy Partition Recovery', 'comfy-partition-recovery', '0');
-INSERT INTO `fighting_menus` VALUES ('35', '注册表修复工具', '%e6%b3%a8%e5%86%8c%e8%a1%a8%e4%bf%ae%e5%a4%8d%e5%b7%a5%e5%85%b7', '0');
-INSERT INTO `fighting_menus` VALUES ('36', 'Registry First Aid Platinum', 'registry-first-aid-platinum', '0');
-INSERT INTO `fighting_menus` VALUES ('37', '最棒的多媒体播放器', '%e6%9c%80%e6%a3%92%e7%9a%84%e5%a4%9a%e5%aa%92%e4%bd%93%e6%92%ad%e6%94%be%e5%99%a8', '0');
-INSERT INTO `fighting_menus` VALUES ('38', 'BSplayer Pro', 'bsplayer-pro', '0');
-INSERT INTO `fighting_menus` VALUES ('39', '最专业的DICOM3和NEMA2文件转换软件', '%e6%9c%80%e4%b8%93%e4%b8%9a%e7%9a%84dicom3%e5%92%8cnema2%e6%96%87%e4%bb%b6%e8%bd%ac%e6%8d%a2%e8%bd%af%e4%bb%b6', '0');
-INSERT INTO `fighting_menus` VALUES ('40', 'Sante Dicommander', 'sante-dicommander', '0');
-INSERT INTO `fighting_menus` VALUES ('41', 'TuneUp Utilities 2013', 'tuneup-utilities-2013', '0');
-INSERT INTO `fighting_menus` VALUES ('42', '顶级视频合并', '%e9%a1%b6%e7%ba%a7%e8%a7%86%e9%a2%91%e5%90%88%e5%b9%b6', '0');
-INSERT INTO `fighting_menus` VALUES ('43', '剪切', '%e5%89%aa%e5%88%87', '0');
-INSERT INTO `fighting_menus` VALUES ('44', '分割软件', '%e5%88%86%e5%89%b2%e8%bd%af%e4%bb%b6', '0');
-INSERT INTO `fighting_menus` VALUES ('45', 'Xilisoft Video Editor', 'xilisoft-video-editor', '0');
-INSERT INTO `fighting_menus` VALUES ('46', 'BurnAware Professional 6.3', 'burnaware-professional-6-3', '0');
-INSERT INTO `fighting_menus` VALUES ('47', '专业光盘刻录工具', '%e4%b8%93%e4%b8%9a%e5%85%89%e7%9b%98%e5%88%bb%e5%bd%95%e5%b7%a5%e5%85%b7', '0');
-INSERT INTO `fighting_menus` VALUES ('48', 'USB Lock', 'usb-lock', '0');
-INSERT INTO `fighting_menus` VALUES ('49', '二进制', '%e4%ba%8c%e8%bf%9b%e5%88%b6', '0');
-INSERT INTO `fighting_menus` VALUES ('50', '十六进制编辑软件', '%e5%8d%81%e5%85%ad%e8%bf%9b%e5%88%b6%e7%bc%96%e8%be%91%e8%bd%af%e4%bb%b6', '0');
-INSERT INTO `fighting_menus` VALUES ('51', 'HEX Editor Neo', 'hex-editor-neo', '0');
-INSERT INTO `fighting_menus` VALUES ('52', 'windows-firewall-contro', 'windows-firewall-contro', '0');
-INSERT INTO `fighting_menus` VALUES ('53', 'Windows防火墙控制', 'windows%e9%98%b2%e7%81%ab%e5%a2%99%e6%8e%a7%e5%88%b6', '0');
-INSERT INTO `fighting_menus` VALUES ('54', 'Ashampoo Slideshow Studio', 'ashampoo-slideshow-studio', '0');
-INSERT INTO `fighting_menus` VALUES ('55', 'Teamviewer', 'teamviewer', '0');
-INSERT INTO `fighting_menus` VALUES ('56', '最好的远程控制软件', '%e6%9c%80%e5%a5%bd%e7%9a%84%e8%bf%9c%e7%a8%8b%e6%8e%a7%e5%88%b6%e8%bd%af%e4%bb%b6', '0');
-INSERT INTO `fighting_menus` VALUES ('57', 'Snagit 11', 'snagit-11', '0');
-INSERT INTO `fighting_menus` VALUES ('58', '强大的屏幕扑捉软件', '%e5%bc%ba%e5%a4%a7%e7%9a%84%e5%b1%8f%e5%b9%95%e6%89%91%e6%8d%89%e8%bd%af%e4%bb%b6', '0');
-INSERT INTO `fighting_menus` VALUES ('59', 'proDAD Mercalli', 'prodad-mercalli', '0');
-INSERT INTO `fighting_menus` VALUES ('60', '照片美化工具', '%e7%85%a7%e7%89%87%e7%be%8e%e5%8c%96%e5%b7%a5%e5%85%b7', '0');
-INSERT INTO `fighting_menus` VALUES ('61', 'ArcSoft Perfect 365', 'arcsoft-perfect-365', '0');
-INSERT INTO `fighting_menus` VALUES ('62', '最强数据恢复软件', '%e6%9c%80%e5%bc%ba%e6%95%b0%e6%8d%ae%e6%81%a2%e5%a4%8d%e8%bd%af%e4%bb%b6', '0');
-INSERT INTO `fighting_menus` VALUES ('63', 'MiniTool Power Data Recovery', 'minitool-power-data-recovery', '0');
-INSERT INTO `fighting_menus` VALUES ('64', '系统优化工具', '%e7%b3%bb%e7%bb%9f%e4%bc%98%e5%8c%96%e5%b7%a5%e5%85%b7', '0');
-INSERT INTO `fighting_menus` VALUES ('65', 'Wise Care 365 Pro', 'wise-care-365-pro', '0');
-INSERT INTO `fighting_menus` VALUES ('66', 'Advanced SystemCare Pro', 'advanced-systemcare-pro', '0');
-INSERT INTO `fighting_menus` VALUES ('67', '系统优化软件', '%e7%b3%bb%e7%bb%9f%e4%bc%98%e5%8c%96%e8%bd%af%e4%bb%b6', '0');
-INSERT INTO `fighting_menus` VALUES ('68', 'Total Doc Converter', 'total-doc-converter', '0');
-INSERT INTO `fighting_menus` VALUES ('69', '文档转换工具', '%e6%96%87%e6%a1%a3%e8%bd%ac%e6%8d%a2%e5%b7%a5%e5%85%b7', '0');
-INSERT INTO `fighting_menus` VALUES ('70', 'Bandicam', 'bandicam', '0');
-INSERT INTO `fighting_menus` VALUES ('71', '高清视频录制工具', '%e9%ab%98%e6%b8%85%e8%a7%86%e9%a2%91%e5%bd%95%e5%88%b6%e5%b7%a5%e5%85%b7', '0');
-INSERT INTO `fighting_menus` VALUES ('72', 'UltraISO 软碟通', 'ultraiso-%e8%bd%af%e7%a2%9f%e9%80%9a', '0');
-INSERT INTO `fighting_menus` VALUES ('73', 'UltraISO Premium Edition', 'ultraiso-premium-edition', '0');
+INSERT INTO `fighting_menus` VALUES ('1', 'UFC', '', 'ufc');
+INSERT INTO `fighting_menus` VALUES ('2', 'Bellator', 'Bellator MMA', 'bellator');
+INSERT INTO `fighting_menus` VALUES ('3', 'ONE FC', 'ONE Fighting Championship', 'onefc');
+INSERT INTO `fighting_menus` VALUES ('4', 'WSOF', 'World Series of Fighting', 'wsof');
+INSERT INTO `fighting_menus` VALUES ('5', 'Invicta FC', 'Invicta FC', 'invictafc');
+INSERT INTO `fighting_menus` VALUES ('6', 'CWFC', ' Cage Warriors Fighting Championship', 'cwfc');
+INSERT INTO `fighting_menus` VALUES ('7', 'M-1', ' M-1 Global', 'm1');
+INSERT INTO `fighting_menus` VALUES ('8', 'JF', 'Jungle Fight', 'JF');
+INSERT INTO `fighting_menus` VALUES ('9', 'KSW', ' Konfrontacja Sztuk Walki', 'ksw');
+INSERT INTO `fighting_menus` VALUES ('10', 'Fight Night', 'Fight Nights (Russia)', 'fightnight');
+INSERT INTO `fighting_menus` VALUES ('11', 'RFA', 'Resurrection Fighting Alliance', 'rfa');
+INSERT INTO `fighting_menus` VALUES ('12', 'LFC', ' Legacy Fighting Championships', 'lfc');
+INSERT INTO `fighting_menus` VALUES ('13', 'TFC', 'Titan Fighting Championship', 'tfc');
+INSERT INTO `fighting_menus` VALUES ('14', ' Shooto South America (ShootoBrazil)', ' Shooto South America (ShootoBrazil)', 'SSA');
+INSERT INTO `fighting_menus` VALUES ('15', 'BAMMA', 'British Association of Mixed Martial Arts', 'bamma');
+INSERT INTO `fighting_menus` VALUES ('16', 'CFFC', ' Cage Fury Fighting Championships', 'cffc');
+INSERT INTO `fighting_menus` VALUES ('17', ' Pancrase', ' Pancrase', ' Pancrase');
+INSERT INTO `fighting_menus` VALUES ('18', 'Ring Of Combat', 'Ring Of Combat', 'Ring Of Combat');
+INSERT INTO `fighting_menus` VALUES ('19', 'PXF', ' Pacific Xtreme Combat', 'PXF');
+INSERT INTO `fighting_menus` VALUES ('20', 'MFC', ' Maximum Fighting Championship', 'mfc');
+INSERT INTO `fighting_menus` VALUES ('21', 'TPF', 'Tachi Palace Fights', 'tpf');
+INSERT INTO `fighting_menus` VALUES ('22', 'XFC', ' Xtreme Fighting Championships', 'xfc');
+INSERT INTO `fighting_menus` VALUES ('23', 'AFC', ' Australian Fighting Championship', 'AFC');
+INSERT INTO `fighting_menus` VALUES ('24', '综合格斗', 'MAA', 'mma');
+INSERT INTO `fighting_menus` VALUES ('25', '踢拳', 'kickboxing', 'kickboxing');
+INSERT INTO `fighting_menus` VALUES ('26', '拳击', 'boxing', 'boxing');
+INSERT INTO `fighting_menus` VALUES ('27', '赛事预告', '赛事预告', 'schedule');
+INSERT INTO `fighting_menus` VALUES ('28', '赛事视频', '赛事视频', 'videos');
+INSERT INTO `fighting_menus` VALUES ('29', 'WBO', 'WBO', 'wbo');
+INSERT INTO `fighting_menus` VALUES ('30', 'WBA', 'WBA', 'wba');
+INSERT INTO `fighting_menus` VALUES ('31', 'IBF', 'IBF', 'ibf');
+INSERT INTO `fighting_menus` VALUES ('32', 'IBO', 'IBO', 'ibo');
+INSERT INTO `fighting_menus` VALUES ('33', 'K-1', 'K-1', 'k1');
+INSERT INTO `fighting_menus` VALUES ('34', 'Glory', 'Glory', 'glory');
+INSERT INTO `fighting_menus` VALUES ('35', '昆仑决', '昆仑决', 'kunlunfight');
 
 -- ----------------------------
 -- Table structure for fighting_menu_catalog
@@ -206,90 +216,51 @@ CREATE TABLE `fighting_menu_catalog` (
   `menu_catalog_id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
   `menu_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `catalog` varchar(32) NOT NULL DEFAULT '',
-  `description` longtext NOT NULL,
+  `description` longtext,
   `parent` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `count` bigint(20) NOT NULL DEFAULT '0',
   PRIMARY KEY (`menu_catalog_id`),
   UNIQUE KEY `term_id_taxonomy` (`menu_id`,`catalog`),
   KEY `taxonomy` (`catalog`)
-) ENGINE=InnoDB AUTO_INCREMENT=74 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=81 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of fighting_menu_catalog
 -- ----------------------------
-INSERT INTO `fighting_menu_catalog` VALUES ('1', '1', 'category', '', '0', '0');
-INSERT INTO `fighting_menu_catalog` VALUES ('2', '2', 'post_tag', '', '0', '0');
-INSERT INTO `fighting_menu_catalog` VALUES ('3', '3', 'post_tag', '', '0', '0');
-INSERT INTO `fighting_menu_catalog` VALUES ('4', '4', 'category', '', '0', '0');
-INSERT INTO `fighting_menu_catalog` VALUES ('5', '5', 'nav_menu', '', '0', '8');
-INSERT INTO `fighting_menu_catalog` VALUES ('6', '6', 'category', '', '4', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('7', '7', 'category', 'network software', '4', '0');
-INSERT INTO `fighting_menu_catalog` VALUES ('8', '8', 'category', '', '4', '9');
-INSERT INTO `fighting_menu_catalog` VALUES ('9', '9', 'category', '', '4', '11');
-INSERT INTO `fighting_menu_catalog` VALUES ('10', '10', 'category', '', '4', '12');
-INSERT INTO `fighting_menu_catalog` VALUES ('11', '11', 'category', '', '4', '8');
-INSERT INTO `fighting_menu_catalog` VALUES ('12', '12', 'post_tag', '', '0', '0');
-INSERT INTO `fighting_menu_catalog` VALUES ('13', '13', 'post_tag', '', '0', '0');
-INSERT INTO `fighting_menu_catalog` VALUES ('14', '14', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('15', '15', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('16', '16', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('17', '17', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('18', '18', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('19', '19', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('20', '20', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('21', '21', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('22', '22', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('23', '23', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('24', '24', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('25', '25', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('26', '26', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('27', '27', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('28', '28', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('29', '29', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('30', '30', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('31', '31', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('32', '32', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('33', '33', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('34', '34', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('35', '35', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('36', '36', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('37', '37', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('38', '38', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('39', '39', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('40', '40', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('41', '41', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('42', '42', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('43', '43', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('44', '44', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('45', '45', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('46', '46', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('47', '47', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('48', '48', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('49', '49', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('50', '50', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('51', '51', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('52', '52', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('53', '53', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('54', '54', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('55', '55', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('56', '56', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('57', '57', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('58', '58', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('59', '59', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('60', '60', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('61', '61', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('62', '62', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('63', '63', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('64', '64', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('65', '65', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('66', '66', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('67', '67', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('68', '68', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('69', '69', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('70', '70', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('71', '71', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('72', '72', 'post_tag', '', '0', '1');
-INSERT INTO `fighting_menu_catalog` VALUES ('73', '73', 'post_tag', '', '0', '1');
+INSERT INTO `fighting_menu_catalog` VALUES ('1', '1', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('2', '2', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('3', '3', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('4', '4', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('5', '5', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('6', '6', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('7', '7', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('8', '8', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('9', '9', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('10', '10', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('11', '11', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('12', '12', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('13', '13', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('14', '14', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('15', '15', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('16', '16', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('17', '17', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('18', '18', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('19', '19', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('20', '20', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('21', '21', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('22', '22', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('23', '23', 'org', '', '24');
+INSERT INTO `fighting_menu_catalog` VALUES ('24', '24', 'catalog', '', '0');
+INSERT INTO `fighting_menu_catalog` VALUES ('25', '25', 'catalog', '', '0');
+INSERT INTO `fighting_menu_catalog` VALUES ('26', '26', 'catalog', '', '0');
+INSERT INTO `fighting_menu_catalog` VALUES ('27', '27', 'nav', '', '0');
+INSERT INTO `fighting_menu_catalog` VALUES ('28', '28', 'nav', '', '0');
+INSERT INTO `fighting_menu_catalog` VALUES ('74', '29', 'org', '', '26');
+INSERT INTO `fighting_menu_catalog` VALUES ('75', '30', 'org', null, '26');
+INSERT INTO `fighting_menu_catalog` VALUES ('76', '31', 'org', null, '26');
+INSERT INTO `fighting_menu_catalog` VALUES ('77', '32', 'org', null, '26');
+INSERT INTO `fighting_menu_catalog` VALUES ('78', '33', 'org', null, '25');
+INSERT INTO `fighting_menu_catalog` VALUES ('79', '34', 'org', null, '25');
+INSERT INTO `fighting_menu_catalog` VALUES ('80', '35', 'org', null, '25');
 
 -- ----------------------------
 -- Table structure for fighting_menu_relationships
@@ -298,7 +269,6 @@ DROP TABLE IF EXISTS `fighting_menu_relationships`;
 CREATE TABLE `fighting_menu_relationships` (
   `object_id` bigint(20) unsigned NOT NULL DEFAULT '0',
   `menu_catalog_id` bigint(20) unsigned NOT NULL DEFAULT '0',
-  `term_order` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`object_id`,`menu_catalog_id`),
   KEY `term_taxonomy_id` (`menu_catalog_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -306,115 +276,6 @@ CREATE TABLE `fighting_menu_relationships` (
 -- ----------------------------
 -- Records of fighting_menu_relationships
 -- ----------------------------
-INSERT INTO `fighting_menu_relationships` VALUES ('21', '5', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('22', '5', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('60', '10', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('60', '70', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('60', '71', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('66', '5', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('67', '5', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('68', '5', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('69', '5', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('70', '5', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('71', '5', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('81', '8', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('88', '8', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('88', '66', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('88', '67', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('90', '10', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('92', '9', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('95', '6', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('97', '10', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('103', '9', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('105', '10', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('109', '10', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('109', '14', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('113', '8', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('116', '11', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('116', '15', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('118', '10', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('118', '16', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('120', '9', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('120', '17', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('120', '18', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('122', '11', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('122', '19', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('122', '20', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('124', '11', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('124', '21', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('124', '22', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('127', '9', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('127', '23', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('127', '24', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('130', '9', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('130', '25', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('130', '26', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('132', '8', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('132', '27', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('132', '28', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('137', '11', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('137', '29', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('137', '30', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('140', '11', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('140', '31', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('140', '32', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('142', '9', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('142', '33', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('142', '34', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('145', '8', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('145', '35', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('145', '36', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('149', '10', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('149', '37', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('149', '38', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('151', '11', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('151', '39', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('151', '40', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('158', '8', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('158', '41', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('160', '8', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('173', '10', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('173', '42', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('173', '43', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('173', '44', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('173', '45', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('179', '10', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('179', '46', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('179', '47', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('197', '9', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('197', '48', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('199', '9', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('199', '49', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('199', '50', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('199', '51', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('207', '8', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('207', '52', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('207', '53', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('214', '10', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('214', '54', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('219', '10', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('219', '55', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('219', '56', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('226', '11', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('226', '57', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('226', '58', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('233', '10', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('233', '59', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('237', '11', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('237', '60', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('237', '61', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('245', '9', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('245', '62', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('245', '63', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('249', '8', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('249', '64', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('249', '65', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('258', '9', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('258', '68', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('258', '69', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('315', '9', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('315', '72', '0');
-INSERT INTO `fighting_menu_relationships` VALUES ('315', '73', '0');
 
 -- ----------------------------
 -- Table structure for fighting_options
@@ -691,7 +552,7 @@ CREATE TABLE `fighting_posts` (
   KEY `post_name` (`post_name`),
   KEY `type_status_date` (`post_date`,`ID`),
   KEY `post_author` (`post_author`)
-) ENGINE=InnoDB AUTO_INCREMENT=321 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=316 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of fighting_posts
@@ -788,9 +649,9 @@ CREATE TABLE `menu` (
 -- Records of menu
 -- ----------------------------
 INSERT INTO `menu` VALUES ('1', 'UFC', '21', '2', '2014-11-09 16:10:14', 'ufc', '', '1');
-INSERT INTO `menu` VALUES ('2', 'GLORY', '23', '2', '2014-11-09 19:44:05', 'glory', '', '1');
-INSERT INTO `menu` VALUES ('3', 'K-1', '23', '2', '2014-11-09 19:44:08', 'k1', '', '2');
-INSERT INTO `menu` VALUES ('4', '昆仑决', '23', '2', '2014-11-09 19:44:12', 'klj', '', '3');
+INSERT INTO `menu` VALUES ('2', 'GLORY', '23', '2', '2014-11-12 21:34:22', 'glory', '', '100');
+INSERT INTO `menu` VALUES ('3', 'K-1', '23', '2', '2014-11-12 21:34:37', 'k1', '', '210');
+INSERT INTO `menu` VALUES ('4', '昆仑决', '23', '2', '2014-11-12 21:35:08', 'klj', '', '321');
 INSERT INTO `menu` VALUES ('5', 'Bellator', '21', '2', '2014-11-09 19:42:24', 'bellator', 'Bellator MMA', '2');
 INSERT INTO `menu` VALUES ('6', 'ONE FC', '21', '2', '2014-11-09 19:42:27', 'onefc', 'ONE Fighting Championship', '3');
 INSERT INTO `menu` VALUES ('7', 'WSOF', '21', '2', '2014-11-09 19:42:29', 'wsof', 'World Series of Fighting', '4');
@@ -818,6 +679,40 @@ INSERT INTO `menu` VALUES ('29', 'PXF', '21', '2', '2014-11-09 19:43:22', 'PXF',
 INSERT INTO `menu` VALUES ('30', 'AFC', '21', '2', '2014-11-09 19:43:36', 'AFC', ' Australian Fighting Championship', '23');
 INSERT INTO `menu` VALUES ('31', '赛事预告', '0', '0', '2014-11-09 19:44:42', 'schedule', '赛事预告', '0');
 INSERT INTO `menu` VALUES ('32', '赛事视频', '0', '0', '2014-11-09 19:46:01', 'videos', '赛事视频', '0');
-INSERT INTO `menu` VALUES ('33', 'IBF', '22', '2', '2014-11-09 19:48:36', 'ibf', 'IBF', '3');
-INSERT INTO `menu` VALUES ('34', 'WBA', '22', '2', '2014-11-09 19:49:06', 'wba', 'WBA', '2');
-INSERT INTO `menu` VALUES ('35', 'WBO', '22', '2', '2014-11-09 19:49:37', 'wbo', 'WBO', '1');
+INSERT INTO `menu` VALUES ('33', 'IBF', '22', '2', '2014-11-12 21:35:10', 'ibf', 'IBF', '3123');
+INSERT INTO `menu` VALUES ('34', 'WBA', '22', '2', '2014-11-12 21:35:06', 'wba', 'WBA', '223');
+INSERT INTO `menu` VALUES ('35', 'WBO', '22', '2', '2014-11-12 21:34:29', 'wbo', 'WBO', '101');
+
+-- ----------------------------
+-- Table structure for organisations
+-- ----------------------------
+DROP TABLE IF EXISTS `organisations`;
+CREATE TABLE `organisations` (
+  `ORG_ID` int(11) NOT NULL AUTO_INCREMENT,
+  `ORG_NAME` varchar(255) NOT NULL,
+  `NICK_NAME` varchar(50) NOT NULL,
+  `ORG_RANKED` int(2) DEFAULT NULL,
+  PRIMARY KEY (`ORG_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of organisations
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for schedule
+-- ----------------------------
+DROP TABLE IF EXISTS `schedule`;
+CREATE TABLE `schedule` (
+  `uid` int(5) unsigned NOT NULL AUTO_INCREMENT,
+  `NAME` varchar(50) NOT NULL,
+  `FULL_NAME` varchar(50) NOT NULL,
+  `TITLE` varchar(50) NOT NULL,
+  `LOCATION` varchar(255) NOT NULL,
+  `CREATE_DATE` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`uid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of schedule
+-- ----------------------------
