@@ -20,7 +20,15 @@
 
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script>
+  $(".button").click(function ones(){
+    var one = $("#one").val();
+    alert(one);
 
+  });
+
+
+</script>
 </head>
 <body>
 <div class="navbar navbar-default">
@@ -32,24 +40,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">格斗爱好者</a>
+      <a class="navbar-brand" href=<c:out value="${pageContext.request.contextPath}/index"/>>格斗爱好者</a>
     </div>
     <div class="navbar-collapse collapse navbar-responsive-collapse">
       <ul class="nav navbar-nav">
         <li><a href=<c:out value="${pageContext.request.contextPath}/schedule"/>>赛事预告</a></li>
-        <li class="active"><a href=<c:out value="${pageContext.request.contextPath}/videos"/>>赛事视频</a></li>
-        <%--<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">赛事视频 <b class="caret"></b></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li class="divider"></li>
-            <li class="dropdown-header">Dropdown header</li>
-            <li><a href="#">Separated link</a></li>
-            <li><a href="#">One more separated link</a></li>
+            <li><a href="<c:out value="${pageContext.request.contextPath}/videos/mma"/>">综合格斗(MMA)</a></li>
+            <li><a href="<c:out value="${pageContext.request.contextPath}/videos/kickboxing"/>">自由搏击</a></li>
+            <li><a href="<c:out value="${pageContext.request.contextPath}/videos/boxing"/>">拳击</a></li>
+
           </ul>
-        </li>--%>
+        </li>
       </ul>
 
  <%--     <ul class="nav navbar-nav navbar-right">

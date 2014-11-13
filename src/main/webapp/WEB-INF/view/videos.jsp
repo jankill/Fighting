@@ -1,7 +1,6 @@
 <%@ include file="header.jsp" %>
 <div class="container">
     <div class="row">
-
         <ol class="breadcrumb">
             <c:forEach items="${menus}" var="menu">
 
@@ -17,7 +16,7 @@
             <ul class="media-list">
                 <li class="media">
                     <a class="media-left" href="#">
-                        <img src="${pageContext.request.contextPath}/images/1.jpg" alt="...">
+                        <img src="${pageContext.request.contextPath}/images/1.jpg" class="img-thumbnail" alt="...">
                     </a>
 
                     <div class="media-body">
@@ -27,7 +26,7 @@
                 </li>
                 <li class="media">
                     <a class="media-left" href="#">
-                        <img src="${pageContext.request.contextPath}/images/2.jpg" alt="...">
+                        <img src="${pageContext.request.contextPath}/images/2.jpg" class="img-rounded" alt="...">
                     </a>
 
                     <div class="media-body">

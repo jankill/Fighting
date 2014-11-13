@@ -14,10 +14,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="org.dongyf.fighting.mapper.UserMapper">
+<mapper namespace="org.dongyf.fighting.mapper.MenuMapper">
 
     <cache/>
-    <resultMap id="userResultMap" type="User">
+    <resultMap id="userResultMap" type="m">
         <id property="id" column="user_id"/>
         <result column="user_login" property="userLogin"/>
         <result column="user_pass" property="userPass"/>

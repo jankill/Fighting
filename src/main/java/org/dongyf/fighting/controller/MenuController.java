@@ -1,8 +1,8 @@
 package org.dongyf.fighting.controller;
 
 import org.dongyf.fighting.model.Menu;
-import org.dongyf.fighting.model.User;
-import org.dongyf.fighting.service.FighterService;
+import org.dongyf.fighting.entity.User;
+import org.dongyf.fighting.service.UserService;
 import org.dongyf.fighting.service.ImenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,34 +22,18 @@ import java.util.List;
 @Controller
 public class MenuController
 {
-    private FighterService fighterService;
+    @Autowired
+    private UserService userService;
     @Autowired
     private ImenuService woqu;
-
-    public ImenuService getWoqu()
-    {
-        return woqu;
-    }
-
-    public void setWoqu(ImenuService woqu)
-    {
-        this.woqu = woqu;
-    }
-
-
-    @Resource
-    public void setFighterService(FighterService fighterService)
-    {
-        this.fighterService = fighterService;
-    }
 
     @RequestMapping(value = {"/", "/index"}, method = RequestMethod.GET)
     public ModelAndView index(ModelAndView modelAndView, HttpServletRequest request)
     {
-
-        List<Menu> menus = woqu.selectMenu();
-
-        modelAndView.addObject("menus",menus);
+        User u = new User();
+        u.setUserLogin("dongyf");
+        u.setUserPass("123456");
+        User user = userService.login(u);
         modelAndView.setViewName("index");
         String path = request.getServletContext().getRealPath("/");
         File file = new File(path + File.separator + "resources" + File.separator + "images");
@@ -58,28 +42,22 @@ public class MenuController
         {
             System.out.println(f.getName());
         }
-        System.out.println();
+        System.out.println(user);
         return modelAndView;
     }
     @RequestMapping(value = "/video/{org}",method = RequestMethod.GET)
     public ModelAndView getVideo(ModelAndView modelAndView,@PathVariable String org){
-        List<User> users = fighterService.findAll();
-        for (User user : users)
-        {
-            System.out.println(user);
-        }
 
-        List<Menu> menus = woqu.selectMenu();
-
-        modelAndView.addObject("menus",menus);
         modelAndView.setViewName("index");
-        modelAndView.addObject("users", users);
+
         return  modelAndView;
     }
 
-    @RequestMapping(value = "/videos",method = RequestMethod.GET)
-    public ModelAndView getVideos(ModelAndView modelAndView){
+    @RequestMapping(value = "/videos/{catalog}",method = RequestMethod.GET)
+    public ModelAndView getVideos(ModelAndView modelAndView,@PathVariable String catalog){
+
         modelAndView.setViewName("videos");
+        System.out.println("这里是视频列表");
         return modelAndView;
     }
     @RequestMapping(value = "/schedule",method = RequestMethod.GET)

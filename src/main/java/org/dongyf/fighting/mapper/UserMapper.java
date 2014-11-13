@@ -1,9 +1,7 @@
 package org.dongyf.fighting.mapper;
 
-import org.dongyf.fighting.model.User;
+import org.dongyf.fighting.entity.User;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 /**
  * Created by dongyf on 2014/11/3.
@@ -12,13 +10,9 @@ import java.util.List;
 public interface UserMapper
 {
 
-    public User findUserById(int id);
+    public User login(User user);
 
-    public List<User> findAll();
+    public int updateUser(User user);
 
-    public boolean delById(int id);
-
-    public boolean update(User user);
-
-    public boolean insert(User user);
+    public int insertUser(User user);
 }

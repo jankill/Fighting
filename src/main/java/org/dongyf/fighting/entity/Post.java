@@ -1,6 +1,6 @@
 package org.dongyf.fighting.entity;
 
-import org.dongyf.fighting.model.User;
+import org.dongyf.fighting.entity.User;
 
 import java.math.BigInteger;
 import java.util.Date;

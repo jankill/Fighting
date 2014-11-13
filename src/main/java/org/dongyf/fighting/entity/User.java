@@ -1,13 +1,16 @@
-package org.dongyf.fighting.model;
+package org.dongyf.fighting.entity;
 
+
+import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.Date;
 
 /**
  * Created by dongyf on 2014/11/3.
  */
-public class User
+public class User implements Serializable
 {
+   public static final long serialVersionUID = 1231231231l;
     private BigInteger id;
     private String userLogin;
     private String userPass;

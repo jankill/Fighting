@@ -2,7 +2,7 @@
 <%@include file="header.jsp" %>
 
 <div class="container">
-    <div class="row">
+    <%--div class="row">
 
         <ol class="breadcrumb">
             <c:forEach items="${menus}" var="menu">
@@ -12,7 +12,7 @@
 
             </c:forEach>
         </ol>
-    </div>
+    </div>--%>
 
     <div class="row">
         <div class="panel panel-default">
