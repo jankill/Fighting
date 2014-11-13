@@ -18,6 +18,8 @@
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/application-config.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/conf/application-config.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/conf/application-config.xml</file>
         </fileset>
       </configuration>
@@ -263,4 +265,3 @@
     </option>
   </component>
 </module>
-
