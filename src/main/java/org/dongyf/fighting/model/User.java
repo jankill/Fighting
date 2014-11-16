@@ -1,4 +1,4 @@
-package org.dongyf.fighting.entity;
+package org.dongyf.fighting.model;
 
 
 import java.io.Serializable;

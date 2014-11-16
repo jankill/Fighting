@@ -14,7 +14,7 @@
 
   <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
   <link rel="stylesheet"
-        href="${pageContext.request.contextPath}/css/bootstrap.min.css"
+        href="${pageContext.request.contextPath}/css/bootstrap.min.simplex.css"
         type="text/css">
   <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 
@@ -29,8 +29,22 @@
 
 
 </script>
+
+    <style>
+        .mod_line {
+            background: #e9e9e9;
+            height: 1px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .row {
+            margin-bottom: 25px;
+        }
+    </style>
 </head>
 <body>
+<div style="height:80px;"></div>
 <div class="navbar navbar-default">
   <div class="container">
     <div class="navbar-header">
@@ -46,7 +60,8 @@
       <ul class="nav navbar-nav">
         <li><a href=<c:out value="${pageContext.request.contextPath}/schedule"/>>赛事预告</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">赛事视频 <b class="caret"></b></a>
+            <a href="<c:out value="${pageContext.request.contextPath}/videos"/>" class="dropdown-toggle"
+               data-toggle="dropdown">赛事视频 <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="<c:out value="${pageContext.request.contextPath}/videos/mma"/>">综合格斗(MMA)</a></li>
             <li><a href="<c:out value="${pageContext.request.contextPath}/videos/kickboxing"/>">自由搏击</a></li>
@@ -72,4 +87,5 @@
     </div>
   </div>
 </div>
+<div style="height:80px;border-top:2px solid #D9230F;"></div>
 

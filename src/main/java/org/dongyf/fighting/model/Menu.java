@@ -1,12 +1,16 @@
 package org.dongyf.fighting.model;
 
+
+import java.io.Serializable;
 import java.math.BigInteger;
 
 /**
  * Created by Dongyf on 2014/11/8.
  */
-public class Menu
+public class Menu implements Serializable
 {
+
+
     private BigInteger menuId;
     private String menuName;
     private String fullName;

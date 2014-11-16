@@ -1,9 +1,6 @@
 package org.dongyf.fighting.service;
 
-import org.dongyf.fighting.entity.User;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
+import org.dongyf.fighting.model.User;
 
 /**
  * Created by Dongyf on 2014/11/3.

@@ -1,7 +1,7 @@
 package org.dongyf.fighting.service;
 
 import org.dongyf.fighting.mapper.UserMapper;
-import org.dongyf.fighting.entity.User;
+import org.dongyf.fighting.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

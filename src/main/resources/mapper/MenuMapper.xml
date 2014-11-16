@@ -17,40 +17,11 @@
 <mapper namespace="org.dongyf.fighting.mapper.MenuMapper">
 
     <cache/>
-    <resultMap id="userResultMap" type="m">
-        <id property="id" column="user_id"/>
-        <result column="user_login" property="userLogin"/>
-        <result column="user_pass" property="userPass"/>
-        <result column="user_nickname" property="userNickName"/>
-        <result column="user_email" property="userEmail"/>
-        <result column="user_registered" property="userRegistered"/>
 
-    </resultMap>
-    <select id="login" resultMap="userResultMap">
-        SELECT
-        user_login as userLogin,
-        user_pass as userPass,
-        user_nickname as userNickName,
-        user_email as userEmail,
-        user_registered as userRegistered
-        FROM fighting_users
-        WHERE user_login=#{userLogin}
-        AND user_pass = #{userPass}
+    <select id="selectOrgs" resultType="Menu" parameterType="java.lang.String">
+
+        SELECT fm.menu_name AS menuName,fm.action_url as actionUrl FROM fighting_menu_catalog as fmc
+        LEFT JOIN fighting_menus as fm ON fmc.menu_id=fm.menu_id
+        where fmc.parent=(SELECT fms.menu_id FROM fighting_menus as fms where fms.action_url=#{actionUrl})
     </select>
-
-
-    <update id="updateUser" parameterType="User" >
-        UPDATE fighting_users SET
-        user_pass = #{userPass},
-        user_nickname = #{userNickName},
-        user_email = #{userEmail},
-        user_registered = #{userRegistered}
-        WHERE user_login = #{userLogin}
-    </update>
-
-    <insert id="insertUser" parameterType="User">
-       INSERT INTO `fightingdb`.`fighting_users` (`user_login`, `user_pass`, `user_nicename`, `user_email`, `user_registered`)
-        VALUES (#{userPass}, #{userPass},  #{userNickName}, #{userEmail}, #{userRegistered});
-    </insert>
-
 </mapper>

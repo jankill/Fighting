@@ -2,10 +2,10 @@
 <div class="container">
     <div class="row">
         <ol class="breadcrumb">
-            <c:forEach items="${menus}" var="menu">
+            <c:forEach items="${Orgs}" var="org">
 
-                <li><a href=<c:out value="${pageContext.request.contextPath}/video/${menu.menuName}"/>><c:out
-                        value="${menu.menuName}"/></a></li>
+                <li><a href=<c:out value="${pageContext.request.contextPath}/video/${org.actionUrl}"/>><c:out
+                        value="${org.menuName}"/></a></li>
 
             </c:forEach>
         </ol>
