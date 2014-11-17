@@ -14,7 +14,7 @@
 
   <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
   <link rel="stylesheet"
-        href="${pageContext.request.contextPath}/css/bootstrap.min.simplex.css"
+        href="${pageContext.request.contextPath}/css/bootstrap.min-Slate.css"
         type="text/css">
   <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 
@@ -46,7 +46,7 @@
 </head>
 <body>
 <div style="height:80px;"></div>
-<div class="navbar navbar-default">
+<div class="navbar navbar-collapse">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -88,5 +88,4 @@
     </div>
   </div>
 </div>
-<div style="height:80px;border-top:2px solid #D9230F;"></div>
 
