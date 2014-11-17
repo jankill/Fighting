@@ -150,14 +150,15 @@
 
     <build>
         <finalName>Fighter</finalName>
+        <pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
-                <version>9.2.3.v20140905</version>
+                <version>9.2.4.v20141103</version>
 
                 <configuration>
-                    <stopKey>f</stopKey>
+                    <stopKey>foo</stopKey>
                     <stopPort>9999</stopPort>
                     <scanIntervalSeconds>10</scanIntervalSeconds>
                     <webAppSourceDirectory>${project.basedir}/src/main/webapp</webAppSourceDirectory>
@@ -187,5 +188,6 @@
                 </configuration>
             </plugin>
         </plugins>
+        </pluginManagement>
     </build>
 </project>

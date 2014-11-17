@@ -31,14 +31,15 @@
 </script>
 
     <style>
-        .mod_line {
-            background: #e9e9e9;
+        /*.mod_line {
+            background: #D9230F;
             height: 1px;
+            margin-top: 25px;
             margin-bottom: 25px;
             overflow: hidden;
-        }
+        }*/
 
-        .row {
+        .row{
             margin-bottom: 25px;
         }
     </style>
