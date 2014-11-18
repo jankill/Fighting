@@ -1,16 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: dongyf
-  Date: 2014/11/13
-  Time: 14:24
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+<div class="container">
+  <footer class="footer">
+    <p class="pull-right"><a href="#">asdas</a></p>
+    <p>asda</p>
+    <p>asdasd： <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
+  </footer>
+</div>
 
 </body>
 </html>

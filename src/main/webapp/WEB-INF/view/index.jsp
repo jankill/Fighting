@@ -1,7 +1,7 @@
 <%@include file="header.jsp" %>
 
-<div class="container">
-
+<div class="container-fluid">
+    <div class="row">
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
@@ -43,8 +43,9 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-
-
+    </div>
+</div>
+<div class="container">
 
     <div class="row">
         <div class="col-xs-2 col-md-2">
@@ -65,7 +66,11 @@
             <img src="${pageContext.request.contextPath}/images/1.jpg" alt="..."/>
         </div>
         <div class="col-xs-2 col-md-2">
-            <img src="${pageContext.request.contextPath}/images/1.jpg" alt="..."/>
+            enu{menuId=null, menuName='PXF', fullName='null', actionUrl='PXF'}
+            Menu{menuId=null, menuName='MFC', fullName='null', actionUrl='mfc'}
+            Menu{menuId=null, menuName='TPF', fullName='null', actionUrl='tpf'}
+            Menu{menuId=null, menuName='XFC', fullName='null', actionUrl='xfc'}
+            Menu{menuId=null, menuName='AFC', fullName='null', actionUrl='AFC'}
         </div>
     </div>
 
@@ -87,14 +92,16 @@
         <div class="col-xs-2 col-md-2">
             <img src="${pageContext.request.contextPath}/images/1.jpg" alt="..."/>
         </div>
-        <div class="col-xs-2 col-md-2">
-            <img src="${pageContext.request.contextPath}/images/1.jpg" alt="..."/>
+        <div class="col-xs-2 col-md-2" style="margin-right: 0px">
+            enu{menuId=null, menuName='PXF', fullName='null', actionUrl='PXF'}
+            Menu{menuId=null, menuName='MFC', fullName='null', actionUrl='mfc'}
+            Menu{menuId=null, menuName='TPF', fullName='null', actionUrl='tpf'}
+            Menu{menuId=null, menuName='XFC', fullName='null', actionUrl='xfc'}
+            Menu{menuId=null, menuName='AFC', fullName='null', actionUrl='AFC'}
         </div>
 
     </div>
 
 
 </div>
-</body>
-
-</html>
+<%@include file="footer.jsp"%>
