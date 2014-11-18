@@ -48,6 +48,7 @@ public class MenuController
         modelAndView.addObject("Orgs", menus);
         modelAndView.setViewName("videos");
         System.out.println("这里是视频列表");
+
         return modelAndView;
     }
     @RequestMapping(value = "/schedule",method = RequestMethod.GET)
