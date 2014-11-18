@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - fightingdb@localhost" uuid="2fdef60e-0149-45a6-ad23-a4f90d30b928">
+      <secret-storage>memory</secret-storage>
+    </data-source>
+  </component>
+</project>
