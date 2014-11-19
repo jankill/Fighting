@@ -1112,8 +1112,8 @@ body {
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 15px;
     line-height: 1.4;
-    color: #222222;
-    background-color: #ffffff
+    color: #FEFEFE;
+    background-color: #262626
 }
 
 input, button, select, textarea {
@@ -1123,12 +1123,12 @@ input, button, select, textarea {
 }
 
 a {
-    color: #008cba;
+    color: #9E8E42;
     text-decoration: none
 }
 
 a:hover, a:focus {
-    color: #00526e;
+    color: #9E8E42;
     text-decoration: underline
 }
 

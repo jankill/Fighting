@@ -20,26 +20,9 @@
 
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/stickUp.min.js"></script>
-    <script type="text/javascript">
-        jQuery(function ($) {
-        $(document).ready(function () {
-            $('.navbar-wrapper').stickUp();
-        });
-    }); </script>
 
     <style>
-        /*.mod_line {
-            background: #D9230F;
-            height: 1px;
-            margin-top: 25px;
-            margin-bottom: 25px;
-            overflow: hidden;
-        }*/
 
-        .row {
-            margin-bottom: 25px;
-        }
     </style>
 </head>
 <body>

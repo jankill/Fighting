@@ -26,13 +26,12 @@ public class MenuController
     public ModelAndView index(ModelAndView modelAndView, HttpServletRequest request)
     {
         modelAndView.setViewName("index");
-
         return modelAndView;
     }
     @RequestMapping(value = "/video/{org}",method = RequestMethod.GET)
     public ModelAndView getVideo(ModelAndView modelAndView,@PathVariable String org){
 
-        modelAndView.setViewName("index");
+        modelAndView.setViewName("video");
 
         return  modelAndView;
     }

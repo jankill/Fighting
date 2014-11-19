@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <%@include file="header.jsp" %>
 
 <div class="container-fluid">
@@ -46,58 +48,59 @@
     </div>
 </div>
 <div class="container">
-
+    <div class="row">
+        <h3>综合格斗(MMA)</h3>
+    </div>
     <div class="row">
         <div class="col-xs-2 col-md-2">
             <img src="${pageContext.request.contextPath}/images/1.jpg" alt="..."/>
+            <h4></h4>
+        </div>
+        <div class="col-xs-2 col-md-2">
+            <img src="${pageContext.request.contextPath}/images/1.jpg" alt="..."/>
+            <h4></h4>
+        </div>
+        <div class="col-xs-2 col-md-2">
+            <img src="${pageContext.request.contextPath}/images/1.jpg" alt="..."/>
+            <h4></h4>
+        </div>
+        <div class="col-xs-2 col-md-2">
+            <img src="${pageContext.request.contextPath}/images/1.jpg" alt="..."/>
+            <h4></h4>
+        </div>
+        <div class="col-xs-2 col-md-2">
+            <img src="${pageContext.request.contextPath}/images/1.jpg" alt="..."/>
+            <h4></h4>
+        </div>
+        <div class="col-xs-2 col-md-2">
+        </div>
+    </div>
+<div class="row">
+    <h3>自由搏击</h3>
+</div>
+    <div class="row">
+
+        <div class="col-xs-2 col-md-2">
+            <img src="${pageContext.request.contextPath}/images/1.jpg" alt="..."/>
+            <h4></h4>
         </div>
 
         <div class="col-xs-2 col-md-2">
-            <img src="${pageContext.request.contextPath}/images/2.jpg" alt="..."/>
-            <h3>UFC180:Werdum </h3>
         </div>
-        <div class="col-xs-2 col-md-2">
-            <img src="${pageContext.request.contextPath}/images/1.jpg" alt="..."/>
-        </div>
-        <div class="col-xs-2 col-md-2">
-            <img src="${pageContext.request.contextPath}/images/1.jpg" alt="..."/>
-        </div>
-        <div class="col-xs-2 col-md-2">
-            <img src="${pageContext.request.contextPath}/images/1.jpg" alt="..."/>
-        </div>
-        <div class="col-xs-2 col-md-2">
-            enu{menuId=null, menuName='PXF', fullName='null', actionUrl='PXF'}
-            Menu{menuId=null, menuName='MFC', fullName='null', actionUrl='mfc'}
-            Menu{menuId=null, menuName='TPF', fullName='null', actionUrl='tpf'}
-            Menu{menuId=null, menuName='XFC', fullName='null', actionUrl='xfc'}
-            Menu{menuId=null, menuName='AFC', fullName='null', actionUrl='AFC'}
-        </div>
+
     </div>
 
     <div class="row">
+        <h3>拳击</h3>
+    </div>
+    <div class="row">
 
         <div class="col-xs-2 col-md-2">
             <img src="${pageContext.request.contextPath}/images/1.jpg" alt="..."/>
+            <h4></h4>
         </div>
 
         <div class="col-xs-2 col-md-2">
-            <img src="${pageContext.request.contextPath}/images/1.jpg" alt="..."/>
-        </div>
-        <div class="col-xs-2 col-md-2">
-            <img src="${pageContext.request.contextPath}/images/1.jpg" alt="..."/>
-        </div>
-        <div class="col-xs-2 col-md-2">
-            <img src="${pageContext.request.contextPath}/images/1.jpg" alt="..."/>
-        </div>
-        <div class="col-xs-2 col-md-2">
-            <img src="${pageContext.request.contextPath}/images/1.jpg" alt="..."/>
-        </div>
-        <div class="col-xs-2 col-md-2" style="margin-right: 0px">
-            enu{menuId=null, menuName='PXF', fullName='null', actionUrl='PXF'}
-            Menu{menuId=null, menuName='MFC', fullName='null', actionUrl='mfc'}
-            Menu{menuId=null, menuName='TPF', fullName='null', actionUrl='tpf'}
-            Menu{menuId=null, menuName='XFC', fullName='null', actionUrl='xfc'}
-            Menu{menuId=null, menuName='AFC', fullName='null', actionUrl='AFC'}
         </div>
 
     </div>

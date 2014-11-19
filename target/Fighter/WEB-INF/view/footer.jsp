@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <div class="container">
   <footer class="footer">
     <p class="pull-right"><a href="#">asdas</a></p>
