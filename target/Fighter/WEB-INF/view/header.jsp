@@ -20,10 +20,6 @@
 
     <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
     <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
-
-    <style>
-
-    </style>
 </head>
 <body>
 <div class="navbar-wrapper">

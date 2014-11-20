@@ -55,4 +55,20 @@ public class MenuController
         modelAndView.setViewName("schedule");
         return modelAndView;
     }
+
+    @RequestMapping(value = "admin/edit", method = RequestMethod.GET)
+    public ModelAndView editPost(ModelAndView modelAndView)
+    {
+        modelAndView.setViewName("admin/edit");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "admin/save", method = RequestMethod.POST)
+    public ModelAndView savePost(ModelAndView modelAndView)
+    {
+        modelAndView.setViewName("admin/edit");
+        return modelAndView;
+    }
+
+
 }
