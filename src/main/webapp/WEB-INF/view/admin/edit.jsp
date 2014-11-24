@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@include file="../header.jsp" %>
 <div class="container">
-    <form class="form-horizontal" role="form" action="addPost" method="post">
+    <fieldset>
+        <form:form modelAttribute="postForm" enctype="multipart/form-data" class="form-horizontal" role="form"
+                   action="addPost" method="post">
         <div class="row">
             <div class="form-group">
                 <label for="inputTitle" class="col-md-2 control-label">标题</label>
 
                 <div class="col-md-6">
-                    <input type="title" class="form-control" id="inputTitle">
+                    <form:input type="title" class="form-control" path="postTitle" id="inputTitle"></form:input>
                 </div>
             </div>
         </div>
@@ -16,7 +19,7 @@
                 <label for="inputActionUrl" class="col-md-2 control-label">链接</label>
 
                 <div class="col-md-6">
-                    <input type="text" class="form-control" id="inputActionUrl">
+                    <form:input path="postUrl" type="text" class="form-control" id="inputActionUrl"></form:input>
                 </div>
             </div>
         </div>
@@ -25,33 +28,22 @@
                 <label for="TextareaContent" class="col-md-2 control-label">内容</label>
 
                 <div class="col-md-6">
-                    <textarea class="form-control" rows="3" id="TextareaContent"></textarea>
+                    <form:textarea path="postContent" class="form-control" rows="3"
+                                   id="TextareaContent"></form:textarea>
                 </div>
             </div>
         </div>
 
         <div class="row">
             <div class="form-group">
-                <label for="selectCompetitionCatalog" class="col-md-2 control-label">赛事种类</label>
+                <label for="selectCompetitionCatalog" class="col-md-2 control-label">赛事组织</label>
 
                 <div class="col-md-6">
-                    <select class="form-control" id="selectCompetitionCatalog">
-                        <option value="">1</option>
+                    <form:select path="orgId" class="form-control" id="selectCompetitionCatalog">
+                        <form:option value="-" label="--Please Select"/>
+                        <form:options items="${menuList}" itemValue="menuId" itemLabel="menuName"/>
 
-                    </select>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="form-group">
-                <label for="selectCompetitionOrg" class="col-md-2 control-label">赛事组织</label>
-
-                <div class="col-md-6">
-                    <select class="form-control" id="selectCompetitionOrg">
-                        <option value="1">1</option>
-
-                    </select>
+                    </form:select>
                 </div>
             </div>
         </div>
@@ -61,7 +53,7 @@
                 <label for="exampleInputFile" class="col-md-2 control-label">上传图片</label>
 
                 <div class="col-md-6">
-                    <input type="file" id="exampleInputFile">
+                    <form:input type="file" id="exampleInputFile" path="imageUrl"></form:input>
                 </div>
             </div>
         </div>
@@ -72,6 +64,7 @@
                 </div>
             </div>
         </div>
-    </form>
+        </form:form>
+    </fieldset>
 </div>
 <%@include file="../footer.jsp" %>

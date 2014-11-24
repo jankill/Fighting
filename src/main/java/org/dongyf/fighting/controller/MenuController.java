@@ -1,6 +1,7 @@
 package org.dongyf.fighting.controller;
 
 import org.dongyf.fighting.model.Menu;
+import org.dongyf.fighting.model.PostForm;
 import org.dongyf.fighting.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -59,13 +60,17 @@ public class MenuController
     @RequestMapping(value = "admin/edit", method = RequestMethod.GET)
     public ModelAndView editPost(ModelAndView modelAndView)
     {
+        List<Menu> menus = menuService.selectAll();
+        modelAndView.addObject("menuList", menus);
+        modelAndView.addObject("postForm", new PostForm());
         modelAndView.setViewName("admin/edit");
         return modelAndView;
     }
 
     @RequestMapping(value = "admin/save", method = RequestMethod.POST)
-    public ModelAndView savePost(ModelAndView modelAndView)
+    public ModelAndView savePost(ModelAndView modelAndView, PostForm postForm)
     {
+        System.out.println(postForm);
         modelAndView.setViewName("admin/edit");
         return modelAndView;
     }

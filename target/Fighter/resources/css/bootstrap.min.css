@@ -1109,8 +1109,8 @@ html {
 }
 
 body {
-   /* font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 15px;*/
+    /* font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+     font-size: 15px;*/
     line-height: 1.4;
     color: #7C6853;
     font: 14px/23px proxima-nova-alt, "Proxima Nova Alt", sans-serif;
@@ -1124,7 +1124,7 @@ input, button, select, textarea {
 }
 
 a {
-    color:#7C6853;
+    color: #7C6853;
     text-decoration: none
 }
 
@@ -1204,7 +1204,7 @@ hr {
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-    font-family: Arial,sans-serif,"Open Sans", "Helvetica Neue", Helvetica;
+    font-family: Arial, sans-serif, "Open Sans", "Helvetica Neue", Helvetica;
     font-weight: 300;
     line-height: 1.1;
     color: inherit

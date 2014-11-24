@@ -24,4 +24,11 @@ public class MenuServiceImpl implements MenuService
         List<Menu> menus = menuMapper.selectOrgs(actionUrl);
         return menus;
     }
+
+    @Override
+    public List<Menu> selectAll()
+    {
+        List<Menu> menus = menuMapper.selectAll();
+        return menus;
+    }
 }

@@ -12,4 +12,6 @@ import java.util.List;
 public interface MenuMapper
 {
     public List<Menu> selectOrgs(String actionUrl);
+
+    public List<Menu> selectAll();
 }

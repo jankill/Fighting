@@ -14,16 +14,18 @@ public class Post
     private String postContent;//文章内容 post_content
     private String postTitle;//文章标题 post_title
     private String postExcerpt;//文章摘要 post_excerpt
-    private String postName;//标题缩略名 post_name
+    private String postUrl;//标题缩略名 post_name
     private String commentStatus;//评论状态open/closed comment_status
     private BigInteger commentCount;//评论数、 comment_count
     private Date postModified;//修改时间 post_modified
+    private String imageUrl;
+    private BigInteger orgId;
 
     public Post()
     {
     }
 
-    public Post(BigInteger postId, User postAuthor, Date postDate, String postContent, String postTitle, String postExcerpt, String postName, String commentStatus, BigInteger commentCount, Date postModified)
+    public Post(BigInteger postId, User postAuthor, Date postDate, String postContent, String postTitle, String postExcerpt, String postUrl, String commentStatus, BigInteger commentCount, Date postModified, String imageUrl, BigInteger orgId)
     {
         this.postId = postId;
         this.postAuthor = postAuthor;
@@ -31,10 +33,12 @@ public class Post
         this.postContent = postContent;
         this.postTitle = postTitle;
         this.postExcerpt = postExcerpt;
-        this.postName = postName;
+        this.postUrl = postUrl;
         this.commentStatus = commentStatus;
         this.commentCount = commentCount;
         this.postModified = postModified;
+        this.imageUrl = imageUrl;
+        this.orgId = orgId;
     }
 
     public BigInteger getPostId()
@@ -97,14 +101,14 @@ public class Post
         this.postExcerpt = postExcerpt;
     }
 
-    public String getPostName()
+    public String getPostUrl()
     {
-        return postName;
+        return postUrl;
     }
 
-    public void setPostName(String postName)
+    public void setPostUrl(String postUrl)
     {
-        this.postName = postName;
+        this.postUrl = postUrl;
     }
 
     public String getCommentStatus()
@@ -137,6 +141,26 @@ public class Post
         this.postModified = postModified;
     }
 
+    public String getImageUrl()
+    {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl)
+    {
+        this.imageUrl = imageUrl;
+    }
+
+    public BigInteger getOrgId()
+    {
+        return orgId;
+    }
+
+    public void setOrgId(BigInteger orgId)
+    {
+        this.orgId = orgId;
+    }
+
     @Override
     public String toString()
     {
@@ -147,10 +171,12 @@ public class Post
                 ", postContent='" + postContent + '\'' +
                 ", postTitle='" + postTitle + '\'' +
                 ", postExcerpt='" + postExcerpt + '\'' +
-                ", postName='" + postName + '\'' +
+                ", postUrl='" + postUrl + '\'' +
                 ", commentStatus='" + commentStatus + '\'' +
                 ", commentCount=" + commentCount +
                 ", postModified=" + postModified +
+                ", imageUrl='" + imageUrl + '\'' +
+                ", orgId=" + orgId +
                 '}';
     }
 }

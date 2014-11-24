@@ -24,4 +24,9 @@
         LEFT JOIN fighting_menus as fm ON fmc.menu_id=fm.menu_id
         where fmc.parent=(SELECT fms.menu_id FROM fighting_menus as fms where fms.action_url=#{actionUrl})
     </select>
+
+    <select id="selectAll" resultType="Menu">
+        SELECT menu_id as menuId,menu_name as menuName,full_name as fullName,action_url as actionUrl
+        FROM fighting_menus
+    </select>
 </mapper>
